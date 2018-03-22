@@ -68,7 +68,7 @@ public class WatcherMore extends BaseZooKeeper {
 			logger.info("the value no changed!");
 			return false;
 		}else {
-			logger.info("the value has changed oldValue: " + oldValue + "newValue : " + newValue);
+			logger.info("the value has changed oldValue: " + oldValue + "\tnewValue : " + newValue);
 			oldValue  = newValue;
 			return true;
 		}
@@ -99,7 +99,7 @@ public class WatcherMore extends BaseZooKeeper {
 		
 		if(watchMore.getZk().exists(PATH, false) == null) {
 			watchMore.createZnode(PATH, "AAAA");
-			String result = watchMore.getZnode(PATH);
+			String result = watchMore.getZnodeChanged(PATH);
 			if (logger.isInfoEnabled()) 
 			{
 				logger.info("main(String[]) --------init String result=" + result);
